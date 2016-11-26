@@ -15,6 +15,7 @@ set(SRCS	ActionReplay.cpp
 			NetPlayClient.cpp
 			NetPlayServer.cpp
 			PatchEngine.cpp
+                        PixelDumper.cpp
 			State.cpp
 			Boot/Boot_BS2Emu.cpp
 			Boot/Boot.cpp

@@ -34,6 +34,7 @@
 #include "Core/HW/VideoInterface.h"
 #include "Core/Host.h"
 #include "Core/Movie.h"
+#include "Core/PixelDumper.h"
 
 #include "VideoCommon/AVIDump.h"
 #include "VideoCommon/BPMemory.h"
@@ -650,6 +651,8 @@ bool Renderer::IsFrameDumping()
   if (SConfig::GetInstance().m_DumpFrames)
     return true;
 #endif
+  if (PixelDumper::g_initialized) 
+    return true;
 
   ShutdownFrameDumping();
   return false;
@@ -668,6 +671,7 @@ void Renderer::ShutdownFrameDumping()
 void Renderer::DumpFrameData(const u8* data, int w, int h, int stride, const AVIDump::Frame& state,
                              bool swap_upside_down)
 {
+  //std::cout << "frame: " << state.ticks<< "width: "<< w << " height: "<< h<<std::endl;
   FinishFrameData();
 
   m_frame_dump_config = FrameDumpConfig{data, w, h, stride, swap_upside_down, state};
@@ -745,6 +749,10 @@ void Renderer::RunFrameDumps()
       AVIDump::AddFrame(config.data, config.width, config.height, config.stride, config.state);
     }
 #endif
+    if (PixelDumper::g_initialized)
+    {
+      PixelDumper::CopyFrame(config.data, config.width, config.height, config.stride); 
+    }
 
     m_frame_dump_done.Set();
   }

@@ -75,6 +75,8 @@
 #define ANAGLYPH_DIR "Anaglyph"
 #define PIPES_DIR "Pipes"
 #define MEMORYWATCHER_DIR "MemoryWatcher"
+#define PIXELDUMPER_DIR "PixelDumper"
+#define PIXELDUMPER_FILE "PixelDumper.hex"
 
 // This one is only used to remove it if it was present
 #define SHADERCACHE_LEGACY_DIR "ShaderCache"

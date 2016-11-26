@@ -166,6 +166,7 @@ void ControllerEmu::SaveConfig(IniFile::Section* sec, const std::string& base)
 
 void ControllerEmu::ControlGroup::SetControlExpression(int index, const std::string& expression)
 {
+  //std::cout << "[Control: " << name << " ]" << "[Value: " << expression << " ]" << std::endl;
   controls.at(index)->control_ref->expression = expression;
 }
 

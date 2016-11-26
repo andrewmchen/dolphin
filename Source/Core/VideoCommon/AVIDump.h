@@ -30,6 +30,7 @@ public:
 #if defined(HAVE_LIBAV) || defined(_WIN32)
   static Frame FetchState(u64 ticks);
 #else
+  //static Frame FetchState(u64 ticks);
   static Frame FetchState(u64 ticks) { return {}; }
 #endif
 };

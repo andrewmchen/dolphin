@@ -40,6 +40,7 @@ void CBoot::RunFunction(u32 _iAddr)
 bool CBoot::EmulatedBS2_GC(bool skipAppLoader)
 {
   INFO_LOG(BOOT, "Faking GC BS2...");
+  std::cout << "booting emulated BS2 GC" << std::endl;
 
   // Set up MSR and the BAT SPR registers.
   UReg_MSR& m_MSR = ((UReg_MSR&)PowerPC::ppcState.msr);

@@ -36,6 +36,7 @@
 #include "Core/DSPEmulator.h"
 #include "Core/Host.h"
 #include "Core/MemTools.h"
+#include "Core/PixelDumper.h"
 #ifdef USE_MEMORYWATCHER
 #include "Core/MemoryWatcher.h"
 #endif
@@ -231,6 +232,8 @@ bool IsGPUThread()
 bool Init()
 {
   const SConfig& _CoreParameter = SConfig::GetInstance();
+  std::cout << "first print!" << std::endl;
+  PixelDumper::Initialize();
 
   if (s_emu_thread.joinable())
   {

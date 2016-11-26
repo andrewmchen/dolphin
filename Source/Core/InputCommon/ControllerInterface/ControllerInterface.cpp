@@ -77,6 +77,7 @@ void ControllerInterface::Initialize(void* const hwnd)
   ciface::evdev::Init();
 #endif
 #ifdef CIFACE_USE_PIPES
+  std::cout << "using pipes" << std::endl;
   ciface::Pipes::Init();
 #endif
 

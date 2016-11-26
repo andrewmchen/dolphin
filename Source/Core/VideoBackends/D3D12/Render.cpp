@@ -778,6 +778,7 @@ void Renderer::SwapImpl(u32 xfb_addr, u32 fb_width, u32 fb_stride, u32 fb_height
     CheckHR(s_screenshot_texture->Map(0, &read_range, &screenshot_texture_map));
 
     AVIDump::Frame state = AVIDump::FetchState(ticks);
+
     DumpFrameData(reinterpret_cast<const u8*>(screenshot_texture_map), source_width, source_height,
                   dst_location.PlacedFootprint.Footprint.RowPitch, state);
     FinishFrameData();

@@ -1591,6 +1591,7 @@ void Renderer::FlushFrameDump()
   m_frame_pbo_is_mapped[0] = true;
   void* data = glMapBufferRange(
       GL_PIXEL_PACK_BUFFER, 0, m_last_frame_width[0] * m_last_frame_height[0] * 4, GL_MAP_READ_BIT);
+  //std::cout << "frame: " << m_last_frame_state.ticks <<std::endl;
   DumpFrameData(reinterpret_cast<u8*>(data), m_last_frame_width[0], m_last_frame_height[0],
                 m_last_frame_width[0] * 4, m_last_frame_state, true);
   glBindBuffer(GL_PIXEL_PACK_BUFFER, 0);

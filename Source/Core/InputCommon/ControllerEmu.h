@@ -9,6 +9,7 @@
 #include <memory>
 #include <mutex>
 #include <string>
+#include <iostream>
 #include <vector>
 
 #include "Common/IniFile.h"
@@ -167,6 +168,7 @@ public:
 
     void GetState(ControlState* const x, ControlState* const y)
     {
+      //std::cout << "AnalogStick GetState (x,y): " << "(" << *x << ", " << *y << ")" << std::endl;
       ControlState yy = controls[0]->control_ref->State() - controls[1]->control_ref->State();
       ControlState xx = controls[3]->control_ref->State() - controls[2]->control_ref->State();
 

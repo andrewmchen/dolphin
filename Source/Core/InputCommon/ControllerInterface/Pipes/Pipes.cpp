@@ -47,6 +47,7 @@ void Init()
   // non-blocking mode. The device name is the virtual name of the file.
   File::FSTEntry fst;
   std::string dir_path = File::GetUserPath(D_PIPES_IDX);
+  std::cout << "the path is: " << dir_path << std::endl;
   if (!File::Exists(dir_path))
     return;
   fst = File::ScanDirectoryTree(dir_path, false);
@@ -136,6 +137,7 @@ void PipeDevice::SetAxis(const std::string& entry, double value)
 
 void PipeDevice::ParseCommand(const std::string& command)
 {
+  std::cout << "parsing this: " << command << std::endl;
   std::vector<std::string> tokens;
   SplitString(command, ' ', tokens);
   if (tokens.size() < 2 || tokens.size() > 4)
